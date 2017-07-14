@@ -33,14 +33,14 @@
       <%= link_to "Events", root_url, class: "navbar-item" %>
       <div class="navbar-item">
         <div class="field is-grouped">
-          <p class="control">
-            <a class="button is-primary" href="#">
+        <%= link_to signup_url, class: 'button is-primary' do %>
+            <p class="control">
               <span class="icon">
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
               </span>
               <span>Sign Up</span>
-            </a>
-          </p>
+            </p>
+        <% end %>
         </div>
       </div>
     </div>

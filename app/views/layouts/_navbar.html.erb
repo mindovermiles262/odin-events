@@ -1,0 +1,48 @@
+<nav class="navbar is-transparent">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://bulma.io">
+      Odin Events
+    </a>
+
+    <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+      <span class="icon" style="color: #333;">
+        <i class="fa fa-github"></i>
+      </span>
+    </a>
+
+    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+
+    <div class="navbar-burger burger" data-target="navMenuTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenuTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Home", root_url, class: "navbar-item" %>
+    </div>
+
+    <div class="navbar-end">
+      <%= link_to "Users", root_url, class: "navbar-item" %>
+      <%= link_to "Events", root_url, class: "navbar-item" %>
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="button is-primary" href="#">
+              <span class="icon">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+              </span>
+              <span>Log In</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

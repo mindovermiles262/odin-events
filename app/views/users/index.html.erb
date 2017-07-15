@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="content">
-  <h1>Users</h1>
-</div>
+<h1>Users</h1>
 
 <div class="container">
   <div class="column is-4 is-offset-4">
@@ -11,7 +9,7 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <th></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -21,9 +19,7 @@
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td><%= link_to 'Show', user %></td>
-            <% if correct_user %>
-              <td><%= link_to 'Edit', edit_user_path(user), class: "link" %></td>
-            <% end %>
+            <td><%= link_to 'Edit', edit_user_path(user), class: "link" %></td>
           </tr>
         <% end %>
       </tbody>

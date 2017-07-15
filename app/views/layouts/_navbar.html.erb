@@ -1,6 +1,6 @@
 <nav class="navbar is-transparent">
   <div class="navbar-brand">
-    <a class="navbar-item" href="http://bulma.io">
+    <a class="navbar-item" href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations">
       Odin Events
     </a>
 
@@ -29,11 +29,23 @@
     </div>
 
     <div class="navbar-end">
-      <%= link_to "Users", users_url, class: "navbar-item" %>
-      <%= link_to "Events", root_url, class: "navbar-item" %>
+      <% if logged_in? %>
+        <%= link_to current_user.name, current_user, class: "navbar-item" %>
+        <%= link_to "All Users", users_url, class: "navbar-item" %>
+        <%= link_to "Events", root_url, class: "navbar-item" %>
+        <%= link_to logout_url, class: "button is-primary" do %>
+          <p class="control">
+          <span class="icon">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </span>
+          <span>Log Out</span>
+          </p>
+        <% end %>
+      <% else %>
       <div class="navbar-item">
         <div class="field is-grouped">
-        <%= link_to signup_url, class: 'button is-primary' do %>
+          <%= link_to "Log In", login_path, class: "navbar-item" %>
+          <%= link_to signup_url, class: 'button is-primary' do %>
             <p class="control">
               <span class="icon">
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -43,6 +55,7 @@
         <% end %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </nav>

@@ -1,0 +1,13 @@
+<h1>Log In</h1>
+<div class="column is-half is-offset-one-quarter">
+  <%= form_for(:session, url: login_path) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "input" %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "input" %>
+
+    <%= f.submit "Log In", class: "button is-primary" %>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<h1><%= @event.title %></h1>
+<div class="container is-half is-offset-one-quarter">
+  <table>
+    <tr>
+      <th>Description</th>
+      <th>Starts at</th>
+      <th>Creator</th>
+    </tr>
+    <tr>
+      <td><%= @event.description %></td>
+      <td><%= @event.starts_at %></td>
+      <td><%= @event.user.name %></td>
+    </tr>
+  </table>
+</div>

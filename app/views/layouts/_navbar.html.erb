@@ -32,7 +32,7 @@
       <% if logged_in? %>
         <%= link_to current_user.name, current_user, class: "navbar-item" %>
         <%= link_to "All Users", users_url, class: "navbar-item" %>
-        <%= link_to "Events", root_url, class: "navbar-item" %>
+        <%= link_to "All Events", events_url, class: "navbar-item" %>
         <%= link_to logout_url, class: "button is-primary" do %>
           <p class="control">
           <span class="icon">

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :events, dependent: :destroy
   before_save :downcase_email, :capitalize_name
   validates :email, presence: true
   validates :name, presence: true

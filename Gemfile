@@ -29,9 +29,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use bulma for CSS framework
 gem 'bulma-rails', '0.4.3'
+# Will Paginate for pagination
+gem 'will_paginate', '~> 3.1.0'
+# Datepicker for Event Creation
+gem 'bootstrap-datepicker-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,6 +45,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'faker', '~> 1.8.4'
 end
 
 group :development do

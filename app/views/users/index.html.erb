@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-
 <div class="container">
-  <div class="column is-4 is-offset-4">
+<div class="column is-one-quarter is-offset-three-quarters">
+<%= will_paginate @users %>
+</div>
+</div>
+
+<div class="container"
+  <div class="column is-half is-offset-one-quarter">
     <table>
       <thead>
         <tr>

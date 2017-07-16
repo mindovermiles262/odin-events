@@ -25,6 +25,8 @@
         <% if current_user == e.host %>
           <td><%= link_to "Delete", e, method: :delete, 
                                     data: { confirm: "Are you sure?" }  %></td>
+        <% else %>
+          <td><%= link_to "Attend", root_url %></td>
         <% end %>
       </tr>
     <% end %>

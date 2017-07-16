@@ -8,6 +8,14 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
 
+  def upcoming_events
+    self.events.where("starts_at > ?", Time.now)
+  end
+
+  def past_events
+    self.events.where("starts_at < ?", Time.now)
+  end
+
 private
 
   def downcase_email

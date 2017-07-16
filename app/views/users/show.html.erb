@@ -5,10 +5,30 @@
     <%= @user.email %>
   </p>
 
+  <h1>Upcoming Events</h1>
   <table>
-
+    <tbody>
+    <% @upcoming_events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
   </table>
 
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+  <h1>Past Events</h1>
+  <table>
+    <tbody>
+    <% @past_events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+
 </div>

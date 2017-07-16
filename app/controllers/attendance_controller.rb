@@ -1,6 +1,7 @@
 class AttendanceController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
+    @attendance.user_id = current_user.id
     if @attendance.save
       flash[:success] = "Joined Event"
       redirect_to events_url
@@ -13,6 +14,6 @@ class AttendanceController < ApplicationController
   private
 
   def attendance_params
-    params.permit(:user_id, :event_id)
+    params.permit(:event_id)
   end
 end

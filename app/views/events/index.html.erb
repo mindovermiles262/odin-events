@@ -1,11 +1,10 @@
-<h1>All Events</h1>
+<h1>Upcoming Events</h1>
 
 <div class="container">
 <div class="column is-one-quarter is-offset-three-quarters">
-<%= will_paginate @events %>
+<%= will_paginate @upcoming_events %>
 </div>
 </div>
-
 <div class="container is-half is-offset-one-quarter">
   <table>
     <tr>
@@ -15,7 +14,7 @@
       <th>Host</th>
       <th colspan="2"></th>
     </tr>
-    <% @events.each do |e| %> 
+    <% @upcoming_events.each do |e| %> 
       <tr>
         <td><%= e.title %></td>
         <td><%= e.description %></td>
@@ -30,12 +29,40 @@
             <%= link_to "Attend", method: :post,
                                   controller: "attendance", 
                                   action: :create,
-                                  user_id: current_user.id, 
                                   event_id: e.id %>
           </td>
         <% end %>
       </tr>
     <% end %>
   </table>
+
+
+<h1>Past Events</h1>
+
+<div class="container">
+<div class="column is-one-quarter is-offset-three-quarters">
+<%= will_paginate @past_events %>
+</div>
+</div>
+<div class="container is-half is-offset-one-quarter">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Starts at</th>
+      <th>Host</th>
+      <th colspan="2"></th>
+    </tr>
+    <% @past_events.each do |e| %> 
+      <tr>
+        <td><%= e.title %></td>
+        <td><%= e.description %></td>
+        <td><%= e.starts_at.strftime("%a %b %d %l:%M") %></td>
+        <td><%= e.host.name %></td>
+        <td><%= link_to "View", event_path(e) %>
+      </tr>
+    <% end %>
+  </table>
+
 <%= link_to "Create New Event", new_event_path, class: "button is-primary" %>
 </div>

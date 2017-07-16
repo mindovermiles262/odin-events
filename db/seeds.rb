@@ -8,19 +8,28 @@
 
 User.create(name: 'andy d', email: 'andy@example.com')
 
-25.times do |u|
-  name = Faker::GameOfThrones.character
+# Create 9 additional users
+9.times do |u|
+  name = Faker::HarryPotter.character
   email = "user-#{u}@example.com"
   User.create(name: name, email: email)
 end 
 
-users = User.order(:created_at).take(10)
-users.each do |e|
+
+# Create 0..2 Events for first 5 users
+hosts = User.order(id: :DESC).take(5)
+hosts.each do |host|
   rand(0..2).times do
     title = Faker::Coffee.blend_name
     description = Faker::Coffee.notes
     starts_at = Faker::Date.backward(60)
-    e.events.build(title: title, description: description, starts_at: starts_at)
-    e.save!
+    host.hosted_events.build(title: title, description: description, starts_at: starts_at)
+    host.save!
   end
+end
+
+
+guests = User.order(id: :DESC).take(5)
+guests.each do |guest|
+  Attendance.create(user_id: guest.id, event_id: 2)
 end

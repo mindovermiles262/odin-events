@@ -1,4 +1,4 @@
-<h1><%= @event.title %></h1>
+<h1><%= @event.title.capitalize %></h1>
 <div class="container is-half is-offset-one-quarter">
   <table>
     <tr>
@@ -17,4 +17,10 @@
       <% end %>
     </tr>
   </table>
+
+  <h1>Attending</h1>
+  <% @attendees.each do |user| %>
+    <ul class="text-center"><%= user.name %></ul>
+  <% end %>
+
 </div>

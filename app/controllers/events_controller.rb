@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    @event.host_id = current_user.id
+    @event.host_id = @current_user.id
     if @event.save
       flash[:success] = "Event \"#{@event.title}\" Created"
       redirect_to @event
@@ -16,11 +16,13 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all.paginate(page: params[:page], per_page: 5)
+    @upcoming_events = Event.upcoming.paginate(page: params[:page], per_page: 5)
+    @past_events = Event.past.paginate(page: params[:page], per_page: 5)
   end
 
   def show
     @event = Event.find(params[:id])
+    @attendees = @event.users
   end
 
   def destroy

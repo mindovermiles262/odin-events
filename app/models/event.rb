@@ -8,4 +8,7 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :starts_at, presence: true
+
+  scope :upcoming, -> { where("starts_at > ?", Time.now) }
+  scope :past,     -> { where("starts_at < ?", Time.now) }
 end

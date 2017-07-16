@@ -13,15 +13,18 @@
       <th>Description</th>
       <th>Starts at</th>
       <th>Host</th>
-      <th></th>
+      <th colspan="2"></th>
     </tr>
     <% @events.each do |e| %> 
       <tr>
         <td><%= e.title %></td>
         <td><%= e.description %></td>
         <td><%= e.starts_at.strftime("%a %b %d %l:%M") %></td>
-        <td><%= e.user.name %></td>
+        <td><%= e.host.name %></td>
         <td><%= link_to "View", event_path(e) %>
+        <% if current_user == e.host %>
+          <td><%= link_to "Delete", e, method: :delete %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>

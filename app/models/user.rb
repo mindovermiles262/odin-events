@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :events
+  has_many :events, :foreign_key => "host_id", :class_name => "Event"
+
   before_save :downcase_email, :capitalize_name
   validates :email, presence: true
   validates :name, presence: true

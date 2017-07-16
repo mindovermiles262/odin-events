@@ -6,8 +6,9 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to event
+      redirect_to @event
     else
+      flash[:danger] = "Unable to Create Event"
       render 'new'
     end
   end
@@ -24,6 +25,6 @@ class EventsController < ApplicationController
 private
 
   def event_params
-    require(:event).permit(:title, :description, :starts_at)
+    params.require(:event).permit(:title, :description, :starts_at)
   end 
 end

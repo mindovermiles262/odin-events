@@ -23,7 +23,8 @@
         <td><%= e.host.name %></td>
         <td><%= link_to "View", event_path(e) %>
         <% if current_user == e.host %>
-          <td><%= link_to "Delete", e, method: :delete %></td>
+          <td><%= link_to "Delete", e, method: :delete, 
+                                    data: { confirm: "Are you sure?" }  %></td>
         <% end %>
       </tr>
     <% end %>

@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="column is-half is-offset-one-quarter">
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
+  <h1><%= @user.name %></h1>
+  <p class="text-center">
     <%= @user.email %>
   </p>
+
+  <table>
+
+  </table>
 
   <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Back', users_path %>

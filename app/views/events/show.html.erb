@@ -5,11 +5,16 @@
       <th>Description</th>
       <th>Starts at</th>
       <th>Creator</th>
+      <th colspan="1"></th>
     </tr>
     <tr>
       <td><%= @event.description %></td>
       <td><%= @event.starts_at %></td>
       <td><%= @event.host.name %></td>
+      <% if current_user == @event.host %>
+        <td><%= link_to "Delete", @event, method: :delete, 
+                                          data: { confirm: "Are you sure?" } %>
+      <% end %>
     </tr>
   </table>
 </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'attendance/create'
+
   root 'static_pages#index'
   
   get '/signup',  to: 'users#new'
@@ -11,5 +13,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
+  resources :attendance
   
 end

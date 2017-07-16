@@ -26,7 +26,13 @@
           <td><%= link_to "Delete", e, method: :delete, 
                                     data: { confirm: "Are you sure?" }  %></td>
         <% else %>
-          <td><%= link_to "Attend", root_url %></td>
+          <td>
+            <%= link_to "Attend", method: :post,
+                                  controller: "attendance", 
+                                  action: :create,
+                                  user_id: current_user.id, 
+                                  event_id: e.id %>
+          </td>
         <% end %>
       </tr>
     <% end %>
